@@ -1,24 +1,40 @@
 import React from "react";
-import styles from "./App.module.scss";
+import { connect } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
+import Main from "../Main/Main";
+import { handleClickSidebar } from "../../actions/SidebarActions";
 
-function App() {
+function App(props) {
+  const { sidebar, handleClickSidebar } = props;
   return (
-    <div className={styles.App}>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        {/* <Route path="/about">
+<About />
+</Route>
+<Route path="/users">
+<Users />
+</Route> */}
+        <Route exact path="/">
+          <React.Fragment>
+            <Sidebar sidebar={sidebar.open} />
+            <Main />
+          </React.Fragment>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (store) => {
+  return {
+    sidebar: store.sidebar,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  handleClickSidebar: () => dispatch(handleClickSidebar()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
