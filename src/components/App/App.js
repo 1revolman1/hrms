@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./App.module.scss";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.

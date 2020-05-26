@@ -7,22 +7,5 @@ export function handleLogin(callback) {
     dispatch({
       type: LOGIN_REQUEST,
     });
-    VK.Auth.login((r) => {
-      if (r.session) {
-        const username = r.session.user.first_name;
-
-        dispatch({
-          type: LOGIN_SUCCESS,
-          payload: username,
-        });
-        callback();
-      } else {
-        dispatch({
-          type: LOGIN_FAIL,
-          error: true,
-          payload: new Error("Ошибка авторизации"),
-        });
-      }
-    }, 4);
   };
 }
