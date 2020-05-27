@@ -1,6 +1,7 @@
 import React from "react";
-
-function Main() {
+import "./Main.scss";
+function Main(props) {
+  const { sidebar } = props;
   return (
     <div className="Main">
       <header className="Main-header">

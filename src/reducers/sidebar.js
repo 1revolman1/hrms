@@ -7,7 +7,7 @@ const initialState = {
 export function sidebarReducer(state = initialState, action) {
   switch (action.type) {
     case SIDEBAR_EVENT:
-      return { ...state, open: !this.state.open };
+      return { ...state, open: !state.open };
     default:
       return state;
   }

@@ -1,25 +1,59 @@
 import React, { useContext } from "react";
-import "./Sidebar.scss";
+import logoSm from "./media/URich-Logo-small.svg";
+import logoBg from "./media/URich-Logo.svg";
+import bell from "./media/bell-icon.svg";
+import style from "./Sidebar.scss";
+import partner from "./media/partner.svg";
+import timer from "./media/timer.svg";
+import calendar from "./media/calendar.svg";
+import portfolio from "./media/portfolio.svg";
 
-function App(props) {
-  const { sidebar } = props;
+function Sidebar(props) {
+  const { sidebar, handleClickSidebar } = props;
+  const visited = true;
   return (
-    <div
-      style={{ width: "16%" }}
-      className="Sidebar w3-light-grey w3-bar-block"
-    >
-      <h3 className="w3-bar-item">Menu {sidebar} </h3>
-      <a href="#" className="w3-bar-item w3-button">
-        Link 1
+    <div className={sidebar ? "Sidebar" : " Sidebar Sidebar-hide"}>
+      <div className="header">
+        <div className="logo">
+          <img src={sidebar ? logoBg : logoSm} alt="logo" />
+        </div>
+        <div className="bellicon">
+          <img src={bell} alt="it's just bell image" />
+        </div>
+      </div>
+      <a className={visited ? "navlinks page-active" : "navlinks"}>
+        <img src={partner} alt="" />
+        <p>СОТРУДНИКИ</p>
       </a>
-      <a href="#" className="w3-bar-item w3-button">
-        Link 2
+      <a className="navlinks">
+        <img src={timer} alt="" />
+        <p>РАБОЧЕЕ ВРЕМЯ</p>
       </a>
-      <a href="#" className="w3-bar-item w3-button">
-        Link 3
+      <a className="navlinks">
+        <img src={calendar} alt="" />
+        <p>КАЛЕНДАРЬ</p>
       </a>
+      <a className="navlinks">
+        <img src={portfolio} alt="" />
+        <p>РЕЗЮМЕ</p>
+      </a>
+      <button className="button" onClick={() => handleClickSidebar()}>
+        <i></i>
+      </button>
+      <div className="user-profile">
+        <div className="user-profile-photo">
+          <img
+            src="https://thecyberhawk.com/wp-content/uploads/2020/01/Douglas-Reid-Equipment-Manager.jpg"
+            alt=""
+          />
+        </div>
+        <div className="user-profile-info">
+          <h3>User Name</h3>
+          <p>username@gmail.com</p>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default Sidebar;

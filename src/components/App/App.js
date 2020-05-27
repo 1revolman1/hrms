@@ -18,7 +18,10 @@ function App(props) {
 </Route> */}
         <Route exact path="/">
           <React.Fragment>
-            <Sidebar sidebar={sidebar.open} />
+            <Sidebar
+              sidebar={sidebar.open}
+              handleClickSidebar={handleClickSidebar}
+            />
             <Main />
           </React.Fragment>
         </Route>
