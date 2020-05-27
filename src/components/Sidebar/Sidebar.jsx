@@ -7,6 +7,7 @@ import partner from "./media/partner.svg";
 import timer from "./media/timer.svg";
 import calendar from "./media/calendar.svg";
 import portfolio from "./media/portfolio.svg";
+import arrow from "./media/arrow.svg";
 
 function Sidebar(props) {
   const { sidebar, handleClickSidebar } = props;
@@ -51,6 +52,7 @@ function Sidebar(props) {
           <h3>User Name</h3>
           <p>username@gmail.com</p>
         </div>
+        <img className="user-profile-arrow" src={arrow} alt="" />
       </div>
     </div>
   );
