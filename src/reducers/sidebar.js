@@ -1,7 +1,7 @@
 import { SIDEBAR_EVENT } from "../actions/SidebarActions";
 
 const initialState = {
-  open: true,
+  open: false,
 };
 
 export function sidebarReducer(state = initialState, action) {
