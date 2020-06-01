@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import logoSm from "./media/URich-Logo-small.svg";
 import logoBg from "./media/URich-Logo.svg";
 import bell from "./media/bell-icon.svg";
-import style from "./Sidebar.scss";
+import "./Sidebar.scss";
 import partner from "./media/partner.svg";
 import timer from "./media/timer.svg";
 import calendar from "./media/calendar.svg";
@@ -13,31 +12,35 @@ function Sidebar(props) {
   const { sidebar, handleClickSidebar } = props;
   const visited = true;
   return (
-    <div className={sidebar ? "Sidebar" : " Sidebar Sidebar-hide"}>
+    <div className={sidebar ? "Sidebar" : "Sidebar close"}>
       <div className="header">
         <div className="logo">
-          <img src={sidebar ? logoBg : logoSm} alt="logo" />
+          <img src={logoBg} alt="logo" />
         </div>
         <div className="bellicon">
           <img src={bell} alt="it's just bell image" />
         </div>
       </div>
-      <a className={visited ? "navlinks page-active" : "navlinks"}>
-        <img src={partner} alt="" />
-        <p>СОТРУДНИКИ</p>
-      </a>
-      <a className="navlinks">
-        <img src={timer} alt="" />
-        <p>РАБОЧЕЕ ВРЕМЯ</p>
-      </a>
-      <a className="navlinks">
-        <img src={calendar} alt="" />
-        <p>КАЛЕНДАРЬ</p>
-      </a>
-      <a className="navlinks">
-        <img src={portfolio} alt="" />
-        <p>РЕЗЮМЕ</p>
-      </a>
+      <div className="nav">
+        <a className={visited ? "navlinks page-active" : "navlinks"}>
+          <img src={partner} alt="" />
+          <p>СОТРУДНИКИ</p>
+        </a>
+        <a className="navlinks">
+          <img src={timer} alt="" />
+          <p>РАБОЧЕЕ ВРЕМЯ</p>
+        </a>
+        <a className="navlinks">
+          <img src={calendar} alt="" />
+
+          <p>КАЛЕНДАРЬ</p>
+        </a>
+        <a className="navlinks">
+          <img src={portfolio} alt="" />
+
+          <p>РЕЗЮМЕ</p>
+        </a>
+      </div>
       <button className="button" onClick={() => handleClickSidebar()}>
         <i></i>
       </button>
