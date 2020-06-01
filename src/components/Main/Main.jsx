@@ -3,7 +3,7 @@ import "./Main.scss";
 function Main(props) {
   const { sidebar } = props;
   return (
-    <div className="Main">
+    <div className={sidebar ? "Main" : "Main close"}>
       <header className="Main-header">
         <p>
           Edit <code>src/Main.js</code> and save to reload.

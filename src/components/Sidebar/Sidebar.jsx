@@ -10,7 +10,6 @@ import arrow from "./media/arrow.svg";
 
 function Sidebar(props) {
   const { sidebar, handleClickSidebar } = props;
-  const visited = true;
   return (
     <div className={sidebar ? "Sidebar" : "Sidebar close"}>
       <div className="header">
@@ -22,7 +21,7 @@ function Sidebar(props) {
         </div>
       </div>
       <div className="nav">
-        <a className={visited ? "navlinks page-active" : "navlinks"}>
+        <a className={"navlinks page-active"}>
           <img src={partner} alt="" />
           <p>СОТРУДНИКИ</p>
         </a>

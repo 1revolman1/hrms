@@ -22,7 +22,7 @@ function App(props) {
               sidebar={sidebar.open}
               handleClickSidebar={handleClickSidebar}
             />
-            <Main />
+            <Main sidebar={sidebar.open} />
           </React.Fragment>
         </Route>
       </Switch>

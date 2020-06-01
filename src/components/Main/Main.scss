@@ -1,19 +1,12 @@
-// .Main {
-//   width: 90%;
-//   margin: 0 auto;
-//   max-width: 1440px;
-//   transition: all 0.5s linear;
-//   // margin: 0 auto 0 calc(5% + 200px);
-//   // margin: 0 auto 0 calc(2% + 200px);
-//   // width: 68%;
-// }
 .Main {
   margin-left: 265px;
   padding: 1px 16px;
-  height: 1000px;
-}
-@media screen and (max-width: 700px) {
-  .Main {
+  transition: margin linear 0.5s;
+  &.close {
     margin-left: 0;
+  }
+  @media screen and (max-width: 700px) {
+    margin-left: 0;
+    padding-top: 19px;
   }
 }
