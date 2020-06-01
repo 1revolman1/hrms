@@ -73,7 +73,8 @@ function Main(props) {
     ],
     []
   );
-  const data = React.useMemo(() => makeData(2000), []);
+
+  const data = React.useMemo(() => makeData(100000), []);
 
   return (
     <div className={sidebar ? "Main" : "Main close"}>
