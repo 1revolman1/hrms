@@ -1,75 +1,98 @@
-import React from "react";
-import {
-  useTable,
-  useSortBy,
-  usePagination,
-  useFlexLayout,
-  useResizeColumns,
-} from "react-table";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+const StyledTable = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+  padding: 2rem 2rem;
+  color: #000;
+  table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    tr {
+      padding: 5px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #454545;
+    }
+    th {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.8px;
+      color: #c74e4e;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ddd;
+    }
+    th,
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+    td {
+      text-align: left;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    table thead {
+      display: none;
+    }
+    table tr {
+      margin-bottom: 10px;
+      display: block;
+    }
+    table td {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+    }
+    table td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+`;
 
-function Table({ columns, data }) {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
-
-    // The rest of these things are super handy, too ;)
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    state: { pageIndex, pageSize },
-  } = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageIndex: 2 },
-    },
-    useSortBy,
-    usePagination,
-    useFlexLayout,
-    useResizeColumns
-  );
-
+function Table(props) {
+  const { data } = props;
+  console.log("RENDER TABLE");
+  console.log(data);
   return (
-    <>
-      <table {...getTableProps()}>
+    <StyledTable>
+      <table>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                // Add the sorting props to control sorting. For this example
-                // we can add them into the header props
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
-                  {/* Add a sort direction indicator */}
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? " 🔽"
-                        : " 🔼"
-                      : ""}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          ))}
+          <tr>
+            {Object.keys(data[0]).map((thead, index) => (
+              <th key={index}>{thead}</th>
+            ))}
+          </tr>
         </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
-            prepareRow(row);
+        <tbody>
+          {data.map((tr, index) => {
             return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
+              <tr key={index}>
+                {Object.values(tr).map((td, index1) => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td key={index1} data-label={Object.keys(tr)[index1]}>
+                      {td}
+                    </td>
                   );
                 })}
               </tr>
@@ -77,54 +100,7 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-      {/* <br />
-      <div>Showing the first 20 results of {rows.length} rows</div> */}
-      <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {"<<"}
-        </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {"<"}
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {">"}
-        </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {">>"}
-        </button>
-        <span>
-          pageIndex
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>
-        </span>
-        <span>
-          | Go to page:
-          <input
-            type="number"
-            defaultValue={pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0;
-              gotoPage(page);
-            }}
-            style={{ width: "100px" }}
-          />
-        </span>
-        <select
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
-          }}
-        >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
-      </div>
-    </>
+    </StyledTable>
   );
 }
-
 export default Table;

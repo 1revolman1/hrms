@@ -36,7 +36,6 @@ function Sidebar(props) {
         </a>
         <a className="navlinks">
           <img src={portfolio} alt="" />
-
           <p>РЕЗЮМЕ</p>
         </a>
       </div>

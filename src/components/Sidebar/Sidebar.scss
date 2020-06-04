@@ -2,7 +2,9 @@
   margin: 0;
   padding: 30px 0;
   width: 265px;
+  // min-height: 566px;
   transition: width linear 0.5s;
+  overflow: auto;
   background-color: #e5e5e5;
   position: fixed;
   display: flex;
@@ -158,6 +160,7 @@
   }
   &.close {
     width: 0;
+    overflow: initial;
     .button {
       transform: rotate(180deg);
       left: 0;
@@ -173,9 +176,14 @@
       padding: 0;
     }
   }
+  &:not(.close) {
+    min-height: 566px;
+    // transition: width linear 0.5s;
+  }
   @media screen and (max-width: 700px) {
     width: 100%;
     height: auto;
+    transition: width linear 0s;
   }
   @keyframes ring {
     0% {

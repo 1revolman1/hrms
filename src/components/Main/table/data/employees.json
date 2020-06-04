@@ -1,0 +1,16 @@
+{
+  "emloyees": [
+    {
+      "name": "Ануфриев Сергей",
+      "mail": "test@gmail.com",
+      "hourlyrate": "10",
+      "access": ["Admin", "Owner"]
+    },
+    {
+      "name": "Шестопалов Владимир",
+      "mail": "test1@gmail.com",
+      "hourlyrate": "10",
+      "access": ["Admin"]
+    }
+  ]
+}
