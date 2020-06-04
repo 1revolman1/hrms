@@ -3,6 +3,8 @@ https://max-frontend.gitbook.io/redux-course-ru/
 
 Плагин для таблицы
 https://www.npmjs.com/package/react-table
+https://codesandbox.io/embed/github/tannerlinsley/react-table/tree/master/examples/pagination
+https://codesandbox.io/embed/github/tannerlinsley/react-table/tree/master/examples/sorting
 
 Плагин для табов
 https://www.npmjs.com/package/react-tabs

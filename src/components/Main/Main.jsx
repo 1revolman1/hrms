@@ -81,7 +81,7 @@ function Main(props) {
       <div className="wrapper">
         <div className="header"></div>
         <div className="tabs"></div>
-        <div className="table">
+        <div className="table" style={{ overflowX: "auto" }}>
           <Styles>
             <Table columns={columns} data={data} />
           </Styles>

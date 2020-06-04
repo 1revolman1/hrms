@@ -1,5 +1,11 @@
 import React from "react";
-import { useTable, useSortBy, usePagination } from "react-table";
+import {
+  useTable,
+  useSortBy,
+  usePagination,
+  useFlexLayout,
+  useResizeColumns,
+} from "react-table";
 
 function Table({ columns, data }) {
   const {
@@ -27,7 +33,9 @@ function Table({ columns, data }) {
       initialState: { pageIndex: 2 },
     },
     useSortBy,
-    usePagination
+    usePagination,
+    useFlexLayout,
+    useResizeColumns
   );
 
   return (
