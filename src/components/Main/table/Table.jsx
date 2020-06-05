@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 const StyledTable = styled.div`
   margin: 0 auto;
@@ -75,32 +75,77 @@ function Table(props) {
   console.log("RENDER TABLE");
   console.log(data);
   return (
-    <StyledTable>
-      <table>
-        <thead>
-          <tr>
-            {Object.keys(data[0]).map((thead, index) => (
-              <th key={index}>{thead}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((tr, index) => {
-            return (
-              <tr key={index}>
-                {Object.values(tr).map((td, index1) => {
-                  return (
-                    <td key={index1} data-label={Object.keys(tr)[index1]}>
-                      {td}
-                    </td>
-                  );
-                })}
+    <React.Fragment>
+      {/* {data ? (
+        <StyledTable>
+          <table>
+            <thead>
+              <tr>
+                {Object.keys(data[0]).map((thead, index) => (
+                  <th key={index}>{thead}</th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </StyledTable>
+            </thead>
+            <tbody>
+              {data.map((tr, index) => {
+                return (
+                  <tr key={index}>
+                    {Object.values(tr).map((td, index1) => {
+                      return (
+                        <td key={index1} data-label={Object.keys(tr)[index1]}>
+                          {td}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </StyledTable>
+      ) : (
+        <StyledTable>
+          <table>
+            <thead>
+              <tr>
+                <th>Нету данных!</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Нету данных!</td>
+              </tr>
+            </tbody>
+          </table>
+        </StyledTable>
+      )} */}
+      <StyledTable>
+        <table>
+          <thead>
+            <tr>
+              {Object.keys(data[0]).map((thead, index) => (
+                <th key={index}>{thead}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((tr, index) => {
+              return (
+                <tr key={index}>
+                  {Object.values(tr).map((td, index1) => {
+                    return (
+                      <td key={index1} data-label={Object.keys(tr)[index1]}>
+                        {td}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </StyledTable>
+    </React.Fragment>
   );
 }
 export default Table;

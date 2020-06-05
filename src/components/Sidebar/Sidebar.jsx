@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import logoBg from "./media/URich-Logo.svg";
 import bell from "./media/bell-icon.svg";
 import "./Sidebar.scss";
