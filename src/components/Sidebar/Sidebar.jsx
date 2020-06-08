@@ -7,20 +7,10 @@ import partner from "./media/partner.svg";
 import timer from "./media/timer.svg";
 import calendar from "./media/calendar.svg";
 import portfolio from "./media/portfolio.svg";
-import arrow from "./media/arrow.svg";
+import arrow_white from "./media/arrow_white.svg";
+import arrow_black from "./media/arrow_black.svg";
 
 function Sidebar(props) {
-  // function showUserInfo(params) {
-  //   setTimeout(() => {
-  //     console.log(123);
-
-  //     return (<div className="user-profile-info">
-  //     <h3>User Name</h3>
-  //     <p>username@gmail.com</p>
-  //   </div>)
-  //   }, 1000)
-
-  // }
   const { sidebar, handleClickSidebar } = props;
   return (
     <div className={sidebar ? "Sidebar" : "Sidebar close"}>
@@ -60,7 +50,7 @@ function Sidebar(props) {
         </a>
       </div>
       <button className="button" onClick={() => handleClickSidebar()}>
-        <i></i>
+        <img src={arrow_white} alt="" />
       </button>
       <div className="user-profile">
         <div className="user-profile-photo">
@@ -79,7 +69,7 @@ function Sidebar(props) {
           ""
         )}
 
-        <img className="user-profile-arrow" src={arrow} alt="" />
+        <img className="user-profile-arrow" src={arrow_black} alt="" />
       </div>
     </div>
   );

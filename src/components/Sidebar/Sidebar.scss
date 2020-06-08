@@ -2,6 +2,7 @@
   margin: 0;
   padding: 30px 0;
   width: 265px;
+  min-height: auto;
   transition: width linear 0.5s;
   overflow: auto;
   background-color: #e5e5e5;
@@ -10,6 +11,12 @@
   flex-direction: column;
   height: 100%;
   z-index: 1;
+  @media screen and (max-width: 768px) {
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transition: height linear 0.3s;
+  }
   .header,
   .nav,
   .button,
@@ -21,8 +28,12 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 100px;
+    & img {
+      cursor: pointer;
+    }
     .bellicon {
       transform-origin: 50% 4px;
+      
       &:hover {
         animation: ring 4s 0s ease-in-out infinite;
       }
@@ -42,6 +53,10 @@
       text-align: center;
       text-decoration: none;
       border-left: 3px solid transparent;
+      cursor: pointer;
+      // &:hover {
+      //   background: #f2f2f2;
+      // }
       p {
         font-family: "Montserrat", sans-serif;
         font-size: 12px;
@@ -70,6 +85,7 @@
     }
   }
   .button {
+    cursor: pointer;
     margin-left: auto;
     margin-top: auto;
     position: relative;
@@ -83,16 +99,10 @@
     border-radius: 35% 0 0 35%;
     border: initial;
     transform-origin: 50% 50%;
-    i {
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      display: inline-block;
-      padding: 3px;
-      transform: rotate(136deg);
-      margin-left: 5px;
-      @media screen and (max-width: 768px) {
-        transform: rotate(137deg);
-      }
+    & img {
+      width: 13px;
+      height: 13px;
+      transform: rotate(180deg);
     }
     @media screen and (max-width: 768px) {
       transform: rotate(90deg);
@@ -100,8 +110,10 @@
       width: 30px;
       height: 100px;
       bottom: -35px;
-      // bottom: -5px;
       left: calc(50% - 15px);
+      & img {
+        transform: rotate(0deg);
+      }
     }
   }
   .user-profile {
@@ -112,6 +124,7 @@
     padding: 0;
     margin-top: auto;
     justify-content: center;
+    cursor: pointer;
     &-photo {
       height: 40px;
       margin-right: 10px;
@@ -159,55 +172,34 @@
     }
     @media screen and (max-width: 768px) {
       margin-top: auto;
+      margin-bottom: auto;
       padding: 0 19px;
       justify-content: flex-start;
-      margin-bottom: 80px;
     }
   }
   &.close {
     width: 88px;
+    overflow: initial;
+    .button img {
+      transform: rotate(0deg);
+    }
     @media screen and (max-width: 768px) {
       width: 100%;
+      height: 0;
+      padding: 0;
       * {
         display: none;
       }
       .button {
         display: flex;
       }
-      .button i {
+      .button img {
         display: block !important;
       }
-    }
-    
-    overflow: initial;
-    .button {
-      i {
-        transform: rotate(320deg);
-        margin-left: 0px;
-      }
-      left: 0px;
-      @media screen and (max-width: 768px) {
-        transform: rotate(270deg);
-        left: calc(50% - 15px);
-        bottom: -65px;
-        i {
-          transform: rotate(136deg);
-        }
+      .button img {
+        transform: rotate(180deg);
       }
     }
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      height: 0;
-      padding: 0;
-    }
-  }
-  &:not(.close) {
-    min-height: auto;
-  }
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    transition: height linear 0.5s;
   }
   @keyframes ring {
     0% {
@@ -284,11 +276,4 @@
       transform: rotate(0);
     }
   }
-}
-
-button:active, button:focus {
-  outline: none;
-}
-button::-moz-focus-inner {
-  border: 0;
 }

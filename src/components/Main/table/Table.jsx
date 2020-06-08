@@ -1,18 +1,30 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 const StyledTable = styled.div`
-  width: 100%;
+  /* width: 100%; */
   margin: 0 auto;
   text-align: center;
   display: inline-block;
   padding: 1rem 1rem;
   color: #000;
   table {
+    border-collapse: separate;
+		border-spacing: 0px 0px;
     width: 100%;
     margin: 0;
     padding: 0;
-    border-collapse: collapse;
-    /* border-spacing: 0; */
+    tbody tr {
+      &:hover {
+        border-radius: 12px;
+        border: 1px solid #c74e4e;
+        background-color: #ffffff;
+      }
+      @media screen and (max-width: 1024px) {
+        border-radius: 12px;
+        border: 1px solid #c74e4e;
+        background-color: #ffffff;
+      }
+    }
     tr {
       padding: 5px;
       font-family: "Montserrat", sans-serif;
@@ -22,13 +34,7 @@ const StyledTable = styled.div`
       font-style: normal;
       line-height: normal;
       letter-spacing: normal;
-      border: 1px solid transparent;
       color: #454545;
-      &:hover {
-        border-radius: 12px;
-        border: 1px solid #c74e4e;
-        background-color: #ffffff;
-      }
     }
     th {
       font-family: "Montserrat", sans-serif;
@@ -108,8 +114,8 @@ const StyledTable = styled.div`
       color: #da932a;
     }
   }
-  @media screen and (max-width: 786px) {
-    width: 70%;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
     table thead {
       display: none;
     }
