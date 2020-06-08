@@ -36,6 +36,7 @@ const StyledTable = styled.div`
       letter-spacing: normal;
       color: #454545;
     }
+
     th {
       font-family: "Montserrat", sans-serif;
       font-size: 16px;
@@ -82,6 +83,9 @@ const StyledTable = styled.div`
         top: 0;
         transform: translate(0, 50%);
       }
+    }
+    td[data-label="access"] {
+      justify-content: flex-end;
     }
     p[data-type="admin"] {
       font-family: "Montserrat", sans-serif;
