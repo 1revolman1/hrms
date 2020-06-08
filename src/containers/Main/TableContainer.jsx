@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
+import Loader from "react-loader-spinner";
+import styled from "styled-components";
 import Table from "../../components/Main/table/Table";
 
+const StyledLoader = styled(Loader)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 function TableContainer(props) {
-  const [data, setData] = useState({ data: null, isLoading: false });
+  const [data, setData] = useState({ data: [], isLoading: false });
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then((res) => {
@@ -18,7 +28,16 @@ function TableContainer(props) {
   console.log("RENDER TABLE CONTAINER");
   return (
     <React.Fragment>
-      {data.isLoading ? null : <Table data={data.data} />}
+      {data.isLoading ? (
+        <StyledLoader
+          type="ThreeDots"
+          color="#c74e4e"
+          height="100"
+          width="100"
+        />
+      ) : (
+        <Table data={data.data} />
+      )}
     </React.Fragment>
   );
 }

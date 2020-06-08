@@ -1,7 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 import "./Main.scss";
 import TableContainer from "../../containers/Main/TableContainer";
-
+const StyledTable = styled.div`
+  overflow-x: auto;
+`;
 function Main(props) {
   const { sidebar } = props;
   console.log("RENDER MAIN");
@@ -10,9 +13,9 @@ function Main(props) {
       <div className="wrapper">
         <div className="header"></div>
         <div className="tabs"></div>
-        <div className="table" style={{ overflowX: "auto" }}>
+        <StyledTable>
           <TableContainer />
-        </div>
+        </StyledTable>
       </div>
     </div>
   );
