@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 const StyledTable = styled.div`
   margin: 0 auto;
   text-align: center;
   display: inline-block;
-  background-color: #fff;
-  padding: 2rem 2rem;
+  padding: 1rem 1rem;
   color: #000;
   table {
     width: 100%;
@@ -15,6 +14,7 @@ const StyledTable = styled.div`
     border-spacing: 0;
     tr {
       padding: 5px;
+      /* padding: 20px; */
       font-family: "Montserrat", sans-serif;
       font-size: 16px;
       font-weight: normal;
@@ -22,7 +22,13 @@ const StyledTable = styled.div`
       font-style: normal;
       line-height: normal;
       letter-spacing: normal;
+      border: 1px solid transparent;
       color: #454545;
+      &:hover {
+        border-radius: 12px;
+        border: 1px solid #c74e4e;
+        background-color: #ffffff;
+      }
     }
     th {
       font-family: "Montserrat", sans-serif;
@@ -55,6 +61,11 @@ const StyledTable = styled.div`
       position: relative;
       p {
         text-align: center;
+        input {
+          padding: 1px 15px;
+          border-radius: 3px;
+          border: solid 0.5px #595959;
+        }
       }
       &::after {
         content: "USD";
@@ -97,10 +108,7 @@ const StyledTable = styled.div`
       color: #da932a;
     }
   }
-  @media screen and (max-width: 600px) {
-    table {
-      border: 0;
-    }
+  @media screen and (max-width: 786px) {
     table thead {
       display: none;
     }
@@ -125,12 +133,23 @@ const StyledTable = styled.div`
         margin: 0;
       }
     }
+    table td[data-label="hourlyrate"] {
+      p {
+        input {
+          padding: 1px 15px;
+          border-radius: 3px;
+          border: solid 0.5px #595959;
+        }
+      }
+    }
     /* table td[data-label="hourlyrate"]::after {
     } */
   }
 `;
 
 function Table(props) {
+  const [count, setCount] = useState(0);
+  const [fetch, setFetch] = useState([]);
   const { data } = props;
   console.log("RENDER TABLE");
   return (
@@ -139,9 +158,9 @@ function Table(props) {
         <thead>
           <tr>
             {data.length > 0 ? (
-              Object.keys(data[0]).map((thead, index) => (
-                <th key={index}>{thead}</th>
-              ))
+              Object.keys(data[0]).map((thead, index) =>
+                thead === "id" ? null : <th key={index}>{thead}</th>
+              )
             ) : (
               <th>Нету данных!</th>
             )}
@@ -151,32 +170,58 @@ function Table(props) {
           {data.length > 0 ? (
             data.map((tr, index) => {
               return (
-                <tr key={index}>
+                <tr key={tr.id}>
                   {Object.values(tr).map((td, index1) => {
-                    return (
-                      <td
-                        key={index1}
-                        //если td - массив, то необходимо вывести компонент в строчку
-                        data-manyblock={typeof td !== "string" ? true : null}
-                        //если td - число, то необходимо добавить атрибут счетчикаа
-                        data-counter-block={+td ? true : null}
-                        //выводит текст для адаптива
-                        data-label={Object.keys(tr)[index1]}
-                      >
-                        {
-                          //если не строка(например: массив текстов), то выводить в цикле
-                          typeof td !== "string" ? (
-                            td.map((p, index) => (
-                              <p data-type={p.toLowerCase()} key={index}>
-                                {p}
+                    //если в массиве передали id, то ее не нужно выводить(можно исправить)
+                    if (td === tr.id) return null;
+                    else
+                      return (
+                        <td
+                          key={index1}
+                          //если td - массив, то необходимо вывести компонент в строчку
+                          data-manyblock={typeof td !== "string" ? true : null}
+                          //если td - число, то необходимо добавить атрибут счетчикаа
+                          data-counter-block={+td ? true : null}
+                          //выводит текст для адаптива
+                          data-label={Object.keys(tr)[index1]}
+                        >
+                          {
+                            //если не строка(например: массив текстов), то выводить в цикле
+                            typeof td !== "string" ? (
+                              td.map((p, index2) => (
+                                <p data-type={p.toLowerCase()} key={index2}>
+                                  {p}
+                                </p>
+                              ))
+                            ) : (
+                              <p>
+                                {+td ? (
+                                  <input
+                                    type="number"
+                                    //ивент добавления "зарплаты" в пул
+                                    onChange={(e) => {
+                                      let value = +e.target.value;
+                                      setFetch((prevState) => {
+                                        return [
+                                          ...prevState.filter(function (item) {
+                                            return !item["id"].includes(tr.id);
+                                          }),
+                                          {
+                                            value: value,
+                                            id: tr.id,
+                                          },
+                                        ];
+                                      });
+                                    }}
+                                  ></input>
+                                ) : (
+                                  td
+                                )}
                               </p>
-                            ))
-                          ) : (
-                            <p> {+td ? <span>{td}</span> : td}</p>
-                          )
-                        }
-                      </td>
-                    );
+                            )
+                          }
+                        </td>
+                      );
                   })}
                 </tr>
               );
