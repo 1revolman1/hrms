@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "./Main.scss";
 import TableContainer from "../../containers/Main/TableContainer";
-import Header from "./header/Header";
+import Header from "./Header/Header";
 const StyledTable = styled.div`
   display: flex;
   justify-content: center;

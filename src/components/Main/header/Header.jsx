@@ -24,7 +24,7 @@ const StyledHeader = styled.div`
     flex-wrap: wrap;
     justify-content: flex-end;
     button {
-      margin: 0 10px;
+      margin: 10px 10px;
       border: 0;
       padding: 22px 15px;
       border-radius: 7px;
