@@ -1,42 +1,57 @@
 import React from "react";
-import logoBg from "./media/URich-Logo.svg";
-import bell from "./media/bell-icon.svg";
 import "./Sidebar.scss";
+import logoBig from "./media/urich-logo-big.svg";
+import logoSmall from "./media/urich-logo-small.svg";
+import bell from "./media/bell-icon.svg";
 import partner from "./media/partner.svg";
 import timer from "./media/timer.svg";
 import calendar from "./media/calendar.svg";
 import portfolio from "./media/portfolio.svg";
 import arrow from "./media/arrow.svg";
 
+
+
 function Sidebar(props) {
+  // function showUserInfo(params) {
+  //   setTimeout(() => {
+  //     console.log(123);
+      
+  //     return (<div className="user-profile-info">
+  //     <h3>User Name</h3>
+  //     <p>username@gmail.com</p>
+  //   </div>)
+  //   }, 1000)
+    
+  // }
   const { sidebar, handleClickSidebar } = props;
   return (
     <div className={sidebar ? "Sidebar" : "Sidebar close"}>
       <div className="header">
         <div className="logo">
-          <img src={logoBg} alt="logo" />
+          {sidebar ? <img src={logoBig} alt="logo" /> : <img src={logoSmall} alt="logo" />}
         </div>
-        <div className="bellicon">
-          <img src={bell} alt="it's just bell image" />
-        </div>
+        
+        {sidebar ? <div className="bellicon"><img src={bell} alt="it's just bell image" /></div> : ''}
+        
       </div>
       <div className="nav">
         <a className={"navlinks page-active"}>
           <img src={partner} alt="" />
-          <p>СОТРУДНИКИ</p>
+          {sidebar ? <p>СОТРУДНИКИ</p> : ''}
+          
         </a>
         <a className="navlinks">
           <img src={timer} alt="" />
-          <p>РАБОЧЕЕ ВРЕМЯ</p>
+          {sidebar ? <p>РАБОЧЕЕ&nbsp;ВРЕМЯ</p> : ''}
+          
         </a>
         <a className="navlinks">
           <img src={calendar} alt="" />
-
-          <p>КАЛЕНДАРЬ</p>
+          {sidebar ? <p>КАЛЕНДАРЬ</p> : ''}
         </a>
         <a className="navlinks">
           <img src={portfolio} alt="" />
-          <p>РЕЗЮМЕ</p>
+          {sidebar ? <p>РЕЗЮМЕ</p> : ''}
         </a>
       </div>
       <button className="button" onClick={() => handleClickSidebar()}>
@@ -49,10 +64,9 @@ function Sidebar(props) {
             alt=""
           />
         </div>
-        <div className="user-profile-info">
-          <h3>User Name</h3>
-          <p>username@gmail.com</p>
-        </div>
+        
+        {sidebar ? <div className="user-profile-info"><h3>User Name</h3><p>username@gmail.com</p></div> : ''}
+        
         <img className="user-profile-arrow" src={arrow} alt="" />
       </div>
     </div>
