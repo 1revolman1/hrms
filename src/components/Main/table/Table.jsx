@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 const StyledTable = styled.div`
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   display: inline-block;
@@ -11,10 +12,9 @@ const StyledTable = styled.div`
     margin: 0;
     padding: 0;
     border-collapse: collapse;
-    border-spacing: 0;
+    /* border-spacing: 0; */
     tr {
       padding: 5px;
-      /* padding: 20px; */
       font-family: "Montserrat", sans-serif;
       font-size: 16px;
       font-weight: normal;
@@ -61,7 +61,7 @@ const StyledTable = styled.div`
       position: relative;
       p {
         text-align: center;
-        input {
+        span {
           padding: 1px 15px;
           border-radius: 3px;
           border: solid 0.5px #595959;
@@ -109,6 +109,7 @@ const StyledTable = styled.div`
     }
   }
   @media screen and (max-width: 786px) {
+    width: 70%;
     table thead {
       display: none;
     }
@@ -135,20 +136,22 @@ const StyledTable = styled.div`
     }
     table td[data-label="hourlyrate"] {
       p {
-        input {
+        padding-right: 20px;
+        text-align: right;
+        span {
           padding: 1px 15px;
           border-radius: 3px;
           border: solid 0.5px #595959;
         }
       }
     }
-    /* table td[data-label="hourlyrate"]::after {
-    } */
+  }
+  @media screen and (max-width: 425px) {
+    width: 100%;
   }
 `;
 
 function Table(props) {
-  const [count, setCount] = useState(0);
   const [fetch, setFetch] = useState([]);
   const { data } = props;
   console.log("RENDER TABLE");
@@ -196,25 +199,26 @@ function Table(props) {
                             ) : (
                               <p>
                                 {+td ? (
-                                  <input
-                                    type="number"
-                                    //ивент добавления "зарплаты" в пул
-                                    onChange={(e) => {
-                                      let value = +e.target.value;
-                                      setFetch((prevState) => {
-                                        return [
-                                          ...prevState.filter(function (item) {
-                                            return !item["id"].includes(tr.id);
-                                          }),
-                                          {
-                                            value: value,
-                                            id: tr.id,
-                                          },
-                                        ];
-                                      });
-                                    }}
-                                  ></input>
+                                  <span>{td}</span>
                                 ) : (
+                                  // <input
+                                  //   type="number"
+                                  //   //ивент добавления "зарплаты" в пул
+                                  //   onChange={(e) => {
+                                  //     let value = +e.target.value;
+                                  //     setFetch((prevState) => {
+                                  //       return [
+                                  //         ...prevState.filter(function (item) {
+                                  //           return !item["id"].includes(tr.id);
+                                  //         }),
+                                  //         {
+                                  //           value: value,
+                                  //           id: tr.id,
+                                  //         },
+                                  //       ];
+                                  //     });
+                                  //   }}
+                                  // ></input>
                                   td
                                 )}
                               </p>
