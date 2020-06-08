@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import Main from "../Main/Main";
+import Login from "../../pages/Login/Login";
 import { handleClickSidebar } from "../../actions/SidebarActions";
 
 function App(props) {
@@ -16,6 +17,7 @@ function App(props) {
 <Route path="/users">
 <Users />
 </Route> */}
+        <Route path="/login" component={Login} />
         <Route exact path="/">
           <React.Fragment>
             <Sidebar
