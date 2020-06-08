@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 const StyledHeader = styled.div`
   display: flex;
@@ -18,33 +18,41 @@ const StyledHeader = styled.div`
       font-size: 35px;
     }
   }
-  button {
-    margin: 0 10px;
-    border: 0;
-    padding: 22px 15px;
-    border-radius: 7px;
-    background-color: #ffc58f;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.8px;
-    color: #454545;
-    &:active {
-      background-color: #ffaf64;
-    }
-    @media screen and (max-width: 1024px) {
-      align-self: flex-end;
-      margin: 10px 0;
-    }
-    @media screen and (max-width: 768px) {
-      padding: 15px 10px;
-      font-size: 13px;
-    }
-    @media screen and (max-width: 425px) {
-      align-self: center;
+  div {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    button {
+      margin: 0 10px;
+      border: 0;
+      padding: 22px 15px;
+      border-radius: 7px;
+      background-color: #ffc58f;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.8px;
+      color: #454545;
+      &:active {
+        background-color: #ffaf64;
+      }
+      @media screen and (max-width: 1024px) {
+        align-self: flex-end;
+        margin: 10px;
+      }
+      @media screen and (max-width: 768px) {
+        padding: 15px 10px;
+        font-size: 13px;
+      }
+      @media screen and (max-width: 480px) {
+        margin: 10px 0;
+        align-self: center;
+        width: 100%;
+      }
     }
   }
   @media screen and (max-width: 1024px) {
@@ -57,8 +65,10 @@ function Header() {
   return (
     <StyledHeader>
       <h1>Сотрудники</h1>
-      <button>РЕДАКТИРОВАТЬ</button>
-      <button>ДОБАВИТЬ СОТРУДНИКА</button>
+      <div>
+        <button>РЕДАКТИРОВАТЬ</button>
+        <button>ДОБАВИТЬ СОТРУДНИКА</button>
+      </div>
     </StyledHeader>
   );
 }

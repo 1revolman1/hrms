@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 const StyledTable = styled.div`
-  /* width: 100%; */
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   display: inline-block;
@@ -9,7 +9,7 @@ const StyledTable = styled.div`
   color: #000;
   table {
     border-collapse: separate;
-		border-spacing: 0px 0px;
+    border-spacing: 0px 0px;
     width: 100%;
     margin: 0;
     padding: 0;
