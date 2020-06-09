@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
-import Table from "../../components/Main/Table/Table";
+import Table from "../../pages/Employees/Table/Table";
 
 const StyledLoader = styled(Loader)`
   width: 100%;
