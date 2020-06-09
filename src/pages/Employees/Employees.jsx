@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "./Employees.scss";
 import TableContainer from "../../containers/TableContainer/TableContainer";
 import Header from "./Header/Header";
-import Tabs from "../Tabs/Tabs";
+import Tabs from "../components/Tabs/Tabs";
 const StyledTable = styled.div`
   display: flex;
   justify-content: center;
@@ -17,7 +17,9 @@ function Employees(props) {
     <div className={sidebar ? "Employees" : "Employees close"}>
       <div className="wrapper">
         <Header />
-        <div className="tabs"></div>
+        <div className="tabs">
+          <Tabs />
+        </div>
         <StyledTable>
           <TableContainer />
         </StyledTable>
