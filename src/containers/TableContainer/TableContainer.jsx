@@ -21,11 +21,9 @@ function TableContainer(props) {
   const [data, setData] = useState({ data: [], isLoading: false });
   const [selected, setSelected] = useState(props.data[0]);
   useEffect(() => {
+    setData({ data: null, isLoading: true });
     fetch(selected.link)
-      .then((res) => {
-        setData({ data: null, isLoading: true });
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((res) => {
         setData({ data: res[0], isLoading: false });
       });

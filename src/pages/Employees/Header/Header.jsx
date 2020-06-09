@@ -62,7 +62,6 @@ const StyledHeader = styled.div`
 `;
 
 function Header() {
-  console.log("RENDER HEADER");
   return (
     <StyledHeader>
       <h1>Сотрудники</h1>
