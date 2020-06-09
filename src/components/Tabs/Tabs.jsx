@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import "./Tabs.scss";
 const StyledTabsWrap = styled.div`
   margin: 0 auto;
-  /* .tabsBlock {
+  .tabsBlock {
     display: flex;
     & > div {
       padding: 8px 28px;
@@ -31,27 +30,31 @@ const StyledTabsWrap = styled.div`
         margin-right: auto;
       }
     }
-  } */
+  }
 `;
 
-function Tabs() {
-  //   const [fetch, setFetch] = useState();
-  console.log("RENDER TABS");
+function Tabs(props) {
+  const { data } = props;
+  const [selected, setSelected] = useState({ index: 0 });
   return (
     <StyledTabsWrap>
-      <nav>
-        <div data-active="true">Активные</div>
-        <div data-active="false">Неактивные</div>
-        {/* <div data-active="false">Неактивные</div>
-        <div data-active="false">Неактивные</div>
-        <div data-active="false">Активные</div> */}
-        <div class="animation start-home"></div>
-      </nav>
-      {/* <div className="tabsBlock">
-        <div data-active="true">Активные</div>
-        <div data-active="false">Неактивные</div>
-        <div class="animation start-home"></div>
-      </div> */}
+      <div className="tabsBlock">
+        {data.map((tab, index) => {
+          return (
+            <div
+              key={index}
+              data-link={tab.link}
+              onClick={() => {
+                props.function(tab);
+                setSelected({ index: index });
+              }}
+              data-active={selected.index === index ? "true" : "false"}
+            >
+              {tab.name}
+            </div>
+          );
+        })}
+      </div>
     </StyledTabsWrap>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 const StyledTable = styled.div`
   width: 100%;
@@ -162,9 +162,7 @@ const StyledTable = styled.div`
 `;
 
 function Table(props) {
-  const [fetch, setFetch] = useState([]);
   const { data } = props;
-  console.log("RENDER TABLE");
   return (
     <StyledTable>
       <table>

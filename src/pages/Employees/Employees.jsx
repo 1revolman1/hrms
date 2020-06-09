@@ -1,26 +1,29 @@
 import React from "react";
-import styled from "styled-components";
 import "./Employees.scss";
 import TableContainer from "../../containers/TableContainer/TableContainer";
 import Header from "./Header/Header";
-import Tabs from "../../components/Tabs/Tabs";
-const StyledTable = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: auto;
-`;
 function Employees(props) {
   const { sidebar } = props;
-  console.log("RENDER MAIN");
   return (
     <div className={sidebar ? "Employees" : "Employees close"}>
       <div className="wrapper">
         <Header />
-        <Tabs />
-        <StyledTable>
-          <TableContainer />
-        </StyledTable>
+        <TableContainer
+          data={[
+            {
+              name: "Активные",
+              link: "http://localhost:8080/users",
+            },
+            {
+              name: "Неактивные",
+              link: "http://localhost:8080/users1",
+            },
+            {
+              name: "Крутые",
+              link: "http://localhost:8080/users2",
+            },
+          ]}
+        />
       </div>
     </div>
   );
