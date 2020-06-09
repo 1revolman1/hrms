@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import "./Main.scss";
-import TableContainer from "../../containers/Main/TableContainer";
+import "./Employees.scss";
+import TableContainer from "../../containers/TableContainer/TableContainer";
 import Header from "./Header/Header";
 const StyledTable = styled.div`
   display: flex;
@@ -9,11 +9,11 @@ const StyledTable = styled.div`
   align-items: center;
   overflow-x: auto;
 `;
-function Main(props) {
+function Employees(props) {
   const { sidebar } = props;
   console.log("RENDER MAIN");
   return (
-    <div className={sidebar ? "Main" : "Main close"}>
+    <div className={sidebar ? "Employees" : "Employees close"}>
       <div className="wrapper">
         <Header />
         <div className="tabs"></div>
@@ -25,4 +25,4 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default Employees;
