@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "./Main.scss";
 import TableContainer from "../../containers/Main/TableContainer";
 import Header from "./Header/Header";
+import Tabs from "../Tabs/Tabs";
 const StyledTable = styled.div`
   display: flex;
   justify-content: center;
