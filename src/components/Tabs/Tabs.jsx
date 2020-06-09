@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 const StyledTabsWrap = styled.div`
   margin: 55px auto;
-  .tabsBlock {
+  & > div {
     display: flex;
     & > div {
       padding: 8px 28px;
@@ -50,7 +50,7 @@ function Tabs(props) {
   const [selected, setSelected] = useState({ index: 0 });
   return (
     <StyledTabsWrap>
-      <div className="tabsBlock">
+      <div>
         {data.map((tab, index) => {
           return (
             <div
