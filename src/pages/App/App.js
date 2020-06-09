@@ -1,10 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
-import Main from "../Main/Main";
-import Login from "../../pages/Login/Login";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Main from "../Employees/Main";
+import Login from "../Login/Login";
 import { handleClickSidebar } from "../../actions/SidebarActions";
+
+
+
+
 
 function App(props) {
   const { sidebar, handleClickSidebar } = props;
