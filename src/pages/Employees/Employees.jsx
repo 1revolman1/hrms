@@ -18,10 +18,10 @@ function Employees(props) {
               name: "Неактивные",
               link: "http://localhost:8080/users1",
             },
-            {
-              name: "Крутые",
-              link: "http://localhost:8080/users2",
-            },
+            // {
+            //   name: "Крутые",
+            //   link: "http://localhost:8080/users2",
+            // },
           ]}
         />
       </div>

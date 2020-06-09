@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 const StyledTabsWrap = styled.div`
-  margin: 0 auto;
+  margin: 55px auto;
   .tabsBlock {
     display: flex;
     & > div {
@@ -15,6 +15,8 @@ const StyledTabsWrap = styled.div`
       letter-spacing: 0.9px;
       border-radius: 7px;
       color: #595959;
+      user-select: none;
+      transition: background 0.5s ease;
       &[data-active="true"] {
         background-color: #c74e4e;
         color: #ffffff;
@@ -24,11 +26,21 @@ const StyledTabsWrap = styled.div`
         color: #595959;
       }
       &:first-of-type {
-        margin-left: auto;
+        @media screen and (min-width: 481px) {
+          margin-left: auto;
+        }
       }
       &:last-of-type {
-        margin-right: auto;
+        @media screen and (min-width: 481px) {
+          margin-right: auto;
+        }
       }
+      @media screen and (max-width: 480px) {
+        margin: 5px 0;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
     }
   }
 `;
