@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 const StyledTable = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -56,6 +57,14 @@ const StyledTable = styled.div`
     }
     td {
       text-align: left;
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit;
+        &:hover {
+          color: #c74e4e;
+        }
+      }
     }
     td[data-manyblock="true"] {
       display: flex;
@@ -208,25 +217,29 @@ function Table(props) {
                               <p>
                                 {+td ? (
                                   <span>{td}</span>
+                                ) : // <input
+                                //   type="number"
+                                //   //ивент добавления "зарплаты" в пул
+                                //   onChange={(e) => {
+                                //     let value = +e.target.value;
+                                //     setFetch((prevState) => {
+                                //       return [
+                                //         ...prevState.filter(function (item) {
+                                //           return !item["id"].includes(tr.id);
+                                //         }),
+                                //         {
+                                //           value: value,
+                                //           id: tr.id,
+                                //         },
+                                //       ];
+                                //     });
+                                //   }}
+                                // ></input>
+                                Object.keys(tr)[index1] === "name" ? (
+                                  <Link to={"/employees/cv-" + data[index].id}>
+                                    {td}
+                                  </Link>
                                 ) : (
-                                  // <input
-                                  //   type="number"
-                                  //   //ивент добавления "зарплаты" в пул
-                                  //   onChange={(e) => {
-                                  //     let value = +e.target.value;
-                                  //     setFetch((prevState) => {
-                                  //       return [
-                                  //         ...prevState.filter(function (item) {
-                                  //           return !item["id"].includes(tr.id);
-                                  //         }),
-                                  //         {
-                                  //           value: value,
-                                  //           id: tr.id,
-                                  //         },
-                                  //       ];
-                                  //     });
-                                  //   }}
-                                  // ></input>
                                   td
                                 )}
                               </p>
@@ -240,7 +253,7 @@ function Table(props) {
             })
           ) : (
             <tr>
-              <td>Нету данных!</td>
+              <td>Нету данных или их не удалось получить из сервера!</td>
             </tr>
           )}
         </tbody>
