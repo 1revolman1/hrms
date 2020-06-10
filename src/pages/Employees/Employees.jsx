@@ -1,7 +1,8 @@
 import React from "react";
-import "./Employees.scss";
+
 import TableContainer from "../../containers/TableContainer/TableContainer";
 import Header from "./Header/Header";
+
 function Employees() {
   return (
     <React.Fragment>

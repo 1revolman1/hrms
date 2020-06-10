@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 const StyledTabsWrap = styled.div`
   margin: 55px auto;
+  @media screen and (max-width: 1024px) {
+    margin: 30px auto;
+    margin-bottom: 20px
+  }
   & > div {
     display: flex;
     & > div {

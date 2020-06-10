@@ -5,6 +5,9 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 79px;
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 0px;
+  }
   h1 {
     flex: 1;
     font-family: "Montserrat", sans-serif;
@@ -15,6 +18,9 @@ const StyledHeader = styled.div`
     line-height: normal;
     letter-spacing: 2.25px;
     color: #454545;
+    @media screen and (max-width: 1100px) and (min-width: 1024px) {
+      font-size: 40px;
+    }
     @media screen and (max-width: 768px) {
       font-size: 35px;
     }
@@ -24,6 +30,9 @@ const StyledHeader = styled.div`
     width: 100%;
     flex-wrap: wrap;
     justify-content: flex-end;
+    @media screen and (max-width: 1024px) {
+      justify-content: space-between;
+    }
     button {
       margin: 10px 10px;
       border: 1px solid transparent;
@@ -40,21 +49,22 @@ const StyledHeader = styled.div`
       color: #454545;
       &:active {
         background-color: #ffaf64;
-        border: 1px solid black;
+        /* border: 1px solid black; */
       }
       @media screen and (max-width: 1024px) {
-        align-self: flex-end;
-        margin: 10px;
-      }
-      @media screen and (max-width: 768px) {
         padding: 15px 10px;
-        font-size: 13px;
-      }
-      @media screen and (max-width: 480px) {
         margin: 10px 0;
         align-self: center;
         width: 100%;
       }
+      @media screen and (max-width: 768px) {
+        font-size: 13px;
+      }
+      /* @media screen and (max-width: 1024px) {
+        margin: 10px 0;
+        align-self: center;
+        width: 100%;
+      } */
     }
   }
   @media screen and (max-width: 1024px) {

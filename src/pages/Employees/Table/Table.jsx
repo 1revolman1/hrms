@@ -6,7 +6,7 @@ const StyledTable = styled.div`
   margin: 0 auto;
   text-align: center;
   display: inline-block;
-  padding: 1rem 1rem;
+  /* padding: 1rem 1rem; */
   color: #000;
   table {
     border-collapse: separate;
@@ -129,6 +129,8 @@ const StyledTable = styled.div`
   }
   @media screen and (max-width: 1024px) {
     width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
     table thead {
       display: none;
     }
