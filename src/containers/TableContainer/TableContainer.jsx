@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
 import Table from "../../pages/Employees/Table/Table";
+import Tabs from "../../components/Tabs/Tabs";
 
 const StyledLoader = styled(Loader)`
   width: 100%;
@@ -10,34 +11,38 @@ const StyledLoader = styled(Loader)`
   justify-content: center;
   align-items: center;
 `;
-
+const StyledTable = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+`;
 function TableContainer(props) {
   const [data, setData] = useState({ data: [], isLoading: false });
+  const [selected, setSelected] = useState(props.data[0]);
   useEffect(() => {
-    fetch("http://localhost:8080/users")
+    setData({ data: null, isLoading: true });
+    fetch(selected.link)
+      .then((res) => res.json())
       .then((res) => {
-        setData({ data: null, isLoading: true });
-        return res.json();
-      })
-      .then((res) => {
-        setTimeout(() => {
-          setData({ data: res[0], isLoading: false });
-        }, 2000);
+        setData({ data: res[0], isLoading: false });
       });
-  }, []);
-  console.log("RENDER TABLE CONTAINER");
+  }, [selected.link]);
   return (
     <React.Fragment>
-      {data.isLoading ? (
-        <StyledLoader
-          type="ThreeDots"
-          color="#c74e4e"
-          height="100"
-          width="100"
-        />
-      ) : (
-        <Table data={data.data} />
-      )}
+      <Tabs function={setSelected} data={props.data} />
+      <StyledTable>
+        {data.isLoading ? (
+          <StyledLoader
+            type="ThreeDots"
+            color="#c74e4e"
+            height="100"
+            width="100"
+          />
+        ) : (
+          <Table data={data.data} />
+        )}
+      </StyledTable>
     </React.Fragment>
   );
 }

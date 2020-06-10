@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Main from "../Employees/Employees";
 import Login from "../Login/Login";
+import NotFound from "../NotFound/NotFound"
 import { handleClickSidebar } from "../../actions/SidebarActions";
 
 function App(props) {
@@ -27,6 +28,7 @@ function App(props) {
             <Main sidebar={sidebar.open} />
           </React.Fragment>
         </Route>
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

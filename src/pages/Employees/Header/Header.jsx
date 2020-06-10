@@ -4,6 +4,7 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 79px;
   h1 {
     flex: 1;
     font-family: "Montserrat", sans-serif;
@@ -61,7 +62,6 @@ const StyledHeader = styled.div`
 `;
 
 function Header() {
-  console.log("RENDER HEADER");
   return (
     <StyledHeader>
       <h1>Сотрудники</h1>

@@ -1,12 +1,47 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import "./Tabs.scss";
 const StyledTabsWrap = styled.div`
-  margin: 0 auto;
-  width: ${props => props.wdth}px;
-  nav {
-    border-radius: 7px;
-    background-color: #e5e5e5;
+  margin: 55px auto;
+  & > div {
+    display: flex;
+    & > div {
+      padding: 8px 28px;
+      font-family: "Montserrat", "sans-serif";
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.9px;
+      border-radius: 7px;
+      color: #595959;
+      user-select: none;
+      transition: background 0.5s ease;
+      &[data-active="true"] {
+        background-color: #c74e4e;
+        color: #ffffff;
+      }
+      &[data-active="false"] {
+        background-color: #e5e5e5;
+        color: #595959;
+      }
+      &:first-of-type {
+        @media screen and (min-width: 481px) {
+          margin-left: auto;
+        }
+      }
+      &:last-of-type {
+        @media screen and (min-width: 481px) {
+          margin-right: auto;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        margin: 5px 0;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+    }
   }
 `;
 const StyledTab = styled.div`
@@ -24,47 +59,29 @@ const StyledTab = styled.div`
   &[data-active="true"] {
     background-color: #c74e4e;
   }
-
-  width: ${props => props.wdth}px;
 `;
-const StyledTabAnimation = styled.div`
-
-  position: absolute;
-  height: 100%;
-  top: 0;
-  z-index: 0;
-  transition: all 0.5s ease 0s;
-  border-radius: 8px;
-
-  width: ${props => props.wdth}px;
-  left: ${props => props.left}px;
-  background-color: #1abc9c;
-
-`;
-
-
 function Tabs(props) {
-  //   const [fetch, setFetch] = useState();
-  console.log("RENDER TABS");
-  // const wdth = useState(150);
-  // const left = useState(0);
-
+  const { data } = props;
+  const [selected, setSelected] = useState({ index: 0 });
   return (
-    <StyledTabsWrap wdth="600">
-      <nav>
-        <StyledTab data-active="false" wdth="200" onclick={console.log('123')}>Активные</StyledTab>
-        <StyledTab data-active="true" wdth="200">Неактивные</StyledTab>
-        <StyledTab data-active="false" wdth="200" >Активные</StyledTab>
-        {/* <div data-active="false">Неактивные</div>
-        <div data-active="false">Неактивные</div>
-        <div data-active="false">Активные</div> */}
-        <StyledTabAnimation class="animation start-home" wdth={props.wdth} left="100"></StyledTabAnimation>
-      </nav>
-      {/* <div className="tabsBlock">
-        <div data-active="true">Активные</div>
-        <div data-active="false">Неактивные</div>
-        <div class="animation start-home"></div>
-      </div> */}
+    <StyledTabsWrap>
+      <div>
+        {data.map((tab, index) => {
+          return (
+            <div
+              key={index}
+              data-link={tab.link}
+              onClick={() => {
+                props.function(tab);
+                setSelected({ index: index });
+              }}
+              data-active={selected.index === index ? "true" : "false"}
+            >
+              {tab.name}
+            </div>
+          );
+        })}
+      </div>
     </StyledTabsWrap>
   );
 }

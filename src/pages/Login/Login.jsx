@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import backgroundImage from "./media/bg.png";
+import backgroundImage from "../../assets/img/bg.png";
+
 
 const ModalDiv = styled.div`
   /* padding: 2%; */
