@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Main from "../Employees/Employees";
 import Login from "../Login/Login";
+import CV from "../CV/CV";
 import { handleClickSidebar } from "../../actions/SidebarActions";
 
 function App(props) {
@@ -17,6 +18,7 @@ function App(props) {
 <Route path="/users">
 <Users />
 </Route> */}
+        <Route path="/employees/cv-:id" component={CV} />
         <Route path="/login" component={Login} />
         <Route exact path="/">
           <React.Fragment>

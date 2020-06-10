@@ -26,7 +26,7 @@ const StyledHeader = styled.div`
     justify-content: flex-end;
     button {
       margin: 10px 10px;
-      border: 0;
+      border: 1px solid transparent;
       padding: 22px 15px;
       border-radius: 7px;
       background-color: #ffc58f;
@@ -40,6 +40,7 @@ const StyledHeader = styled.div`
       color: #454545;
       &:active {
         background-color: #ffaf64;
+        border: 1px solid black;
       }
       @media screen and (max-width: 1024px) {
         align-self: flex-end;
@@ -66,7 +67,7 @@ function Header() {
     <StyledHeader>
       <h1>Сотрудники</h1>
       <div>
-        <button>РЕДАКТИРОВАТЬ</button>
+        <button >РЕДАКТИРОВАТЬ</button>
         <button>ДОБАВИТЬ СОТРУДНИКА</button>
       </div>
     </StyledHeader>
