@@ -118,7 +118,7 @@ const ModalDiv = styled.div`
       width: 65%;
       @media (max-width: 768px) {
         margin: 50px auto 0;
-        width: 100%;
+        width: 80%;
       }
       @media (max-height: 630px) {
         margin: 30px auto 0;
@@ -126,6 +126,7 @@ const ModalDiv = styled.div`
       @media (max-width: 480px) {
         font-size: 1.8rem;
         font-weight: bold;
+        width: 100%;
       }
       &:focus {
         background-image: linear-gradient(to top, #c74e4e, #e36c6c);

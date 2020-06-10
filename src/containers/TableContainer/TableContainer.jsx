@@ -11,12 +11,14 @@ const StyledLoader = styled(Loader)`
   justify-content: center;
   align-items: center;
 `;
+
 const StyledTable = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-x: auto;
 `;
+
 function TableContainer(props) {
   const [data, setData] = useState({ data: [], isLoading: false });
   const [selected, setSelected] = useState(props.data[0]);
