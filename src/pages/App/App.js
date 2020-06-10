@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import Employees from "../Employees/Employees";
 import Login from "../Login/Login";
+import NotFound from "../NotFound/NotFound";
 import CV from "../CV/CV";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           path="/"
           render={(props) => <Layout component={Employees} {...props} />}
         />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

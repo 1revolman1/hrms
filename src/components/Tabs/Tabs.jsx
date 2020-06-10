@@ -44,7 +44,22 @@ const StyledTabsWrap = styled.div`
     }
   }
 `;
-
+const StyledTab = styled.div`
+  border-radius: 7px;
+  line-height: 50px;
+  height: 100%;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  &[data-active="true"] {
+    background-color: #c74e4e;
+  }
+`;
 function Tabs(props) {
   const { data } = props;
   const [selected, setSelected] = useState({ index: 0 });

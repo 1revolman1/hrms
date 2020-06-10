@@ -360,11 +360,13 @@ template {
 [hidden] {
   display: none;
 }
-
+input:active,
+input:focus,
 button:active,
 button:focus {
   outline: none;
 }
+input::-moz-focus-inner,
 button::-moz-focus-inner {
   border: 0;
 }
