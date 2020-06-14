@@ -7,7 +7,6 @@ import styled from "styled-components";
 const StyledLayout = styled.div`
   margin-left: ${(props) => (props.open ? `265px` : "88px")};
   margin-bottom: 30px;
-  padding: 1px 16px;
   transition: margin linear 0.5s;
   .wrapper {
     margin: 0 auto;
@@ -25,9 +24,7 @@ function Layout(props) {
   return (
     <Fragment>
       <SideBar sidebar={sidebar.open} handleClickSidebar={handleClickSidebar} />
-      <StyledLayout open={sidebar.open}>
-        <div className="wrapper">{component(props)}</div>
-      </StyledLayout>
+      <StyledLayout open={sidebar.open}>{component(props)}</StyledLayout>
     </Fragment>
   );
 }

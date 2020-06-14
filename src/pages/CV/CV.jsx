@@ -1,9 +1,12 @@
 import React from "react";
-// import background from "../../assets/img/bg.png";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Header from "./Header/Header";
-const StyledCV = styled.div``;
+const StyledCV = styled.div`
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 90%;
+`;
 function CV(props) {
   const { id } = props.match.params;
   return (

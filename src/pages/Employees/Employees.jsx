@@ -1,11 +1,17 @@
 import React from "react";
-
+import styled from "styled-components";
 import TableContainer from "../../containers/TableContainer/TableContainer";
 import Header from "./Header/Header";
+const StyledBlock = styled.div`
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 90%;
+  padding: 1px 16px;
+`;
 
 function Employees() {
   return (
-    <React.Fragment>
+    <StyledBlock>
       <Header />
       <TableContainer
         data={[
@@ -19,7 +25,7 @@ function Employees() {
           },
         ]}
       />
-    </React.Fragment>
+    </StyledBlock>
   );
 }
 

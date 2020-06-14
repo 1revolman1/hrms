@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  z-index: 1;
+  z-index: 10;
   @media screen and (max-width: 768px) {
     bottom: 0;
     width: 100%;
@@ -33,7 +33,7 @@
     }
     .bellicon {
       transform-origin: 50% 4px;
-      
+
       &:hover {
         animation: ring 4s 0s ease-in-out infinite;
       }
