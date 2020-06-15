@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Header from "./Header/Header";
+import United from "./United/United";
 const StyledCV = styled.div`
   margin: 0 auto;
   max-width: 1440px;
@@ -12,6 +13,7 @@ function CV(props) {
   return (
     <StyledCV>
       <Header />
+      <United />
       Сотрудник {id} !<Link to="/">Обратно</Link>
     </StyledCV>
   );

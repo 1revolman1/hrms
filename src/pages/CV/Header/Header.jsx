@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import background from "../../../assets/img/bg.png";
 import download from "./assets/download.svg";
+import pen from "./assets/pen.svg";
+
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -11,7 +13,8 @@ const StyledHeader = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 15%;
+    height: 105px;
+    /* height: 15%; */
     object-fit: cover;
   }
   > div {
@@ -44,8 +47,9 @@ const StyledHeader = styled.div`
       }
     }
     button {
+      cursor: pointer;
       position: relative;
-      /* margin-left: 25px; */
+      margin-left: 25px;
       background: transparent;
       border: 0;
       font-family: "Montserrat", sans-serif;
@@ -55,16 +59,27 @@ const StyledHeader = styled.div`
       font-style: normal;
       line-height: normal;
       letter-spacing: normal;
-      color: #c74e4e;
+      &[active="true"] {
+        color: #c74e4e;
+      }
+      &[data-class="cv"] {
+        &::before {
+          background-image: url(${download});
+        }
+      }
+      &[data-class="edit"] {
+        &::before {
+          background-image: url(${pen});
+        }
+      }
       &::before {
-    width: 30px;
-    height: 30px;
-    content: url(${download});
-    display: inline-block;
-
+        margin-right: 10px;
+        display: inline-block;
+        content: " ";
+        background-size: 17px 17px;
+        height: 17px;
+        width: 17px;
         z-index: 1;
-        /* content: "fdsfs"; */
-        /* background-image: url(${download}); */
       }
     }
     h3 {
@@ -89,12 +104,14 @@ const StyledHeader = styled.div`
       color: #595959;
       span {
         font-weight: normal;
+        &:after {
+          content: " лет";
+        }
       }
     }
   }
 `;
-
-function Header(props) {
+function Header() {
   return (
     <StyledHeader>
       <div>
@@ -110,8 +127,12 @@ function Header(props) {
         </div>
       </div>
       <div>
-        <button>Скачать резюме</button>
-        <button>Редактировать профиль</button>
+        <button active="true" data-class="cv">
+          Скачать резюме
+        </button>
+        <button active="false" data-class="edit">
+          Редактировать профиль
+        </button>
       </div>
       <img data-fixed="true" src={background} alt="" />
     </StyledHeader>

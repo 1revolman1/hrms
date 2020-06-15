@@ -6,7 +6,6 @@ const StyledTable = styled.div`
   margin: 0 auto;
   text-align: center;
   display: inline-block;
-  /* padding: 1rem 1rem; */
   color: #000;
   table {
     border-collapse: separate;
