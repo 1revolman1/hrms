@@ -74,7 +74,7 @@ const StyledDiv = styled.div`
     }
   }
 `;
-function United(props) {
+function TableTime(props) {
   return (
     <StyledDiv>
       <table>
@@ -124,4 +124,4 @@ function United(props) {
   );
 }
 
-export default United;
+export default TableTime;

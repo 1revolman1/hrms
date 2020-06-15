@@ -7,6 +7,7 @@ import pen from "./assets/pen.svg";
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   img[data-fixed="true"] {
     display: flex;
     position: absolute;
@@ -20,6 +21,7 @@ const StyledHeader = styled.div`
   > div {
     &:nth-child(1) {
       display: flex;
+      flex-wrap: wrap;
       * {
         z-index: 1;
       }
